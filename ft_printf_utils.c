@@ -6,7 +6,7 @@
 /*   By: grmortel <grmortel@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 18:20:28 by grmortel          #+#    #+#             */
-/*   Updated: 2023/04/22 17:59:26 by grmortel         ###   ########.fr       */
+/*   Updated: 2023/04/22 18:23:38 by grmortel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ size_t	ft_putnbr(long long nbr)
 	return (length);
 }
 
-size_t	ft_putnbr_base(unsigned long long nbr, char *base)
+size_t	ft_putnbr_base(unsigned long int nbr, char *base)
 {
 	size_t	length;
 	size_t	count;
@@ -67,13 +67,13 @@ size_t	ft_putnbr_base(unsigned long long nbr, char *base)
 	count = 0;
 	if (nbr < length)
 	{
-		count = count + ft_putchar(base[nbr]);
+		count += ft_putchar(base[nbr]);
 		return (count);
 	}
 	else
 	{
-		count = count + ft_putnbr_base(nbr / length, base);
-		count = count + ft_putnbr_base(nbr % length, base);
+		count += ft_putnbr_base(nbr / length, base);
+		count += ft_putnbr_base(nbr % length, base);
 	}
 	return (count);
 }
